@@ -1,5 +1,6 @@
 node_modules/
 dist/
+dist-ghp/
 coscli_output/
 qa/*.png
 *.log
