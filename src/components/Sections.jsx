@@ -179,7 +179,7 @@ function PlanComparison() {
       <div className="comparison-heading">
         <div>
           <span className="kicker">COMPARE THE DETAILS.</span>
-          <h3>三档方案，逐项比较。</h3>
+          <h3>四档方案，逐项比较。</h3>
         </div>
         <p>比较信息结构、叙事、视觉、微调次数与交付方式。</p>
       </div>
@@ -193,18 +193,18 @@ function PlanComparison() {
             aria-pressed={selectedPlan === index}
             onClick={() => setSelectedPlan(index)}
           >
-            {plan.code}
+            {plan.name}
           </button>
         ))}
       </div>
 
       <div className="comparison-table-wrap">
         <table className="comparison-table">
-          <caption className="sr-only">V1、V2、V3 三档个人网站方案交付比较</caption>
+          <caption className="sr-only">切面、深度、维度、全景 四档个人网站方案交付比较</caption>
           <thead>
             <tr>
               <th scope="col">交付内容</th>
-              {plans.map((plan) => <th scope="col" key={plan.code}>{plan.code} <span>{plan.name}</span></th>)}
+              {plans.map((plan) => <th scope="col" key={plan.code}>{plan.name} <span>{plan.en}</span></th>)}
             </tr>
           </thead>
           <tbody>
@@ -220,7 +220,7 @@ function PlanComparison() {
 
       <div className="comparison-mobile">
         <div className="comparison-mobile__title">
-          <strong>{plans[selectedPlan].code} {plans[selectedPlan].name}</strong>
+          <strong>{plans[selectedPlan].name} {plans[selectedPlan].en}</strong>
           <span>{plans[selectedPlan].beta}</span>
         </div>
         <dl>
@@ -243,7 +243,7 @@ export function Pricing() {
         <SectionHeader
           kicker="PRICING."
           title="选择适合你的定制方案。"
-          intro="二测期间，三档方案均享早鸟 4.8 折。交付完整个人网站源码与部署教程，无平台年费。"
+          intro="二测期间，四档方案均享早鸟 4.8 折。交付完整个人网站源码与部署教程，无平台年费。"
           id="pricing-title"
         />
         <div className="pricing-grid">
@@ -258,8 +258,10 @@ export function Pricing() {
                 <div>
                   <span className="plan-code">{plan.code}</span>
                   <h3>{plan.name}</h3>
+                  {plan.en && <span className="plan-en">{plan.en}</span>}
                 </div>
                 {plan.featured && <span className="plan-tag">推荐</span>}
+                {plan.upcoming && <span className="plan-tag plan-tag--upcoming">在研中</span>}
               </div>
               <p className="price-description">{plan.description}</p>
               <div className="price-block">
@@ -276,10 +278,16 @@ export function Pricing() {
                 <span>预约折后</span>
                 <strong>{plan.booking}</strong>
               </div>
-              <a className={`button price-card__button ${plan.featured ? 'button--primary' : 'button--outline'}`} href={getBookingHref(plan)}>
-                <span>预约 {plan.code}</span>
-                <ArrowUpRight className="button__icon" />
-              </a>
+              {plan.upcoming ? (
+                <span className="button price-card__button button--outline" aria-disabled="true">
+                  <span>本轮不开放</span>
+                </span>
+              ) : (
+                <a className={`button price-card__button ${plan.featured ? 'button--primary' : 'button--outline'}`} href={getBookingHref(plan)}>
+                  <span>预约 {plan.name}</span>
+                  <ArrowUpRight className="button__icon" />
+                </a>
+              )}
             </article>
           ))}
         </div>

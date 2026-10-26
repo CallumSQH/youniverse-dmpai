@@ -64,42 +64,59 @@ export const assets = [
 export const plans = [
   {
     code: 'V1',
-    name: 'Lite',
+    name: '切面',
+    en: 'Facet',
     original: '¥980',
     beta: '¥470',
     booking: '¥423',
-    description: '成熟模板，轻量、清楚地呈现经历与作品。',
-    features: ['标准视觉与布局', '标准信息结构', '中文版', '不含免费微调'],
+    description: '装进现成套版，你填问卷，我们装内容。交付快、便宜，所有人结构一样。',
+    features: ['标准视觉与布局', '标准信息结构', '中文版', '不含免费微调', '无回访'],
   },
   {
     code: 'V2',
-    name: 'Standard',
-    original: '¥1,896',
-    beta: '¥910',
-    booking: '¥819',
-    description: '专门定制设计与信息结构，有氛围感背景，文案去 AI 味。',
-    features: ['专属设计感与氛围背景', '信息结构专门组织', '中英文双版', '1 次整体微调'],
+    name: '深度',
+    en: 'Depth',
+    original: '¥1,800',
+    beta: '¥864',
+    booking: '¥778',
+    description: '只做素材层，身份访谈与叙事结构拆解，专属素材归你，其余从简。',
+    features: ['身份访谈 + 叙事拆解', '专属素材', '中英文双版', '1 次整体微调', '短回访'],
     featured: true,
   },
   {
     code: 'V3',
-    name: 'Pro',
-    original: '¥3,980',
-    beta: '¥1,910',
-    booking: '¥1,719',
-    description: '更高级的设计叙事与视差滚动，把网站做成一件作品。',
-    features: ['高级设计叙事与视差动效', '按整体作品组织', '中英文双版', '2 次整体微调'],
+    name: '维度',
+    en: 'Dimension',
+    original: '待定',
+    beta: '待定',
+    booking: '待定',
+    description: '重做叙事与结构，按你的内容权重重排布局，全页氛围图。在研中，本轮不开放。',
+    features: ['重做叙事与结构', '全页氛围图', '中英版面自适应', '微调以报价单为准', '短回访'],
+    upcoming: true,
+  },
+  {
+    code: 'V4',
+    name: '全景',
+    en: 'Panorama',
+    original: '¥3,800',
+    beta: '¥1,824',
+    booking: '¥1,642',
+    description: '在维度之上加视差滚动，视觉与交互本身即作品，7 天跟踪回访。',
+    features: ['定制之上加视差滚动', '全页氛围图', '中英版面自适应', '2 次整体微调', '7 天跟踪回访'],
   },
 ];
 
 export const comparisonRows = [
-  { label: '信息结构', values: ['标准结构', '为你专门组织', '按整体作品组织'] },
-  { label: '视觉设计', values: ['标准视觉与布局', '专属设计感与氛围背景', '高级设计叙事与视差动效'] },
-  { label: '文案表达', values: ['标准文案', '去 AI 味文案', '去 AI 味文案'] },
-  { label: '叙事梳理', values: ['内容放入成熟结构', '身份访谈与叙事梳理', '定制叙事统筹'] },
-  { label: '语言版本', values: ['中文', '中英文双版', '中英文双版'] },
-  { label: '免费微调', values: ['不含免费微调', '1 次整体微调', '2 次整体微调'] },
-  { label: '交付方式', values: ['源码 + 部署教程', '源码 + 部署教程', '源码 + 部署教程'] },
+  { label: '信息结构', values: ['标准结构', '按你的内容调整', '按内容权重重排', '按内容权重重排'] },
+  { label: '视觉设计', values: ['标准视觉与布局', '按你的身份定', '按你的身份定', '按你的身份定'] },
+  { label: '叙事梳理', values: ['内容放入现成套版', '身份访谈与叙事拆解', '重做叙事与结构', '重做叙事与结构'] },
+  { label: '专属素材', values: ['—', '专属素材', '专属素材', '专属素材'] },
+  { label: '全页氛围图', values: ['—', '—', '全页氛围图', '全页氛围图'] },
+  { label: '视差滚动', values: ['—', '—', '—', '视差滚动'] },
+  { label: '语言版本', values: ['中文', '中英文双版', '中英版面自适应', '中英版面自适应'] },
+  { label: '免费微调', values: ['不含免费微调', '1 次整体微调', '以报价单为准', '2 次整体微调'] },
+  { label: '交付后回访', values: ['无回访', '短回访', '短回访', '7 天跟踪回访'] },
+  { label: '交付方式', values: ['源码 + 部署教程', '源码 + 部署教程', '源码 + 部署教程', '源码 + 部署教程'] },
 ];
 
 export const processSteps = [
@@ -126,7 +143,7 @@ export const processSteps = [
   {
     number: '05',
     title: '返修微调',
-    text: '按方案完成微调：V1 0 次 / V2 1 次 / V3 2 次。',
+    text: '按方案完成微调：切面 0 次 / 深度 1 次 / 全景 2 次。',
   },
   {
     number: '06',
@@ -142,11 +159,11 @@ export const faqs = [
   },
   {
     question: '如何确认最终效果？',
-    answer: '制作完成后，通过桌面与手机视频预览验收。你可以集中反馈意见，免费微调次数以所选方案为准：V1 不含免费微调，V2 含 1 次，V3 含 2 次。',
+    answer: '制作完成后，通过桌面与手机视频预览验收。你可以集中反馈意见，免费微调次数以所选方案为准：切面不含免费微调，深度含 1 次，全景含 2 次。',
   },
   {
-    question: '三档方案如何选择？',
-    answer: '标准结构与视觉选 Lite；需要专属设计感、氛围背景与去 AI 味文案选 Standard；需要高级设计叙事与视差动效选 Pro。比较表用于核对具体差异。',
+    question: '四档方案如何选择？',
+    answer: '要快、要便宜选切面 Facet；内容是我的、但设计不用太讲究选深度 Depth；要一眼高级选全景 Panorama。维度 Dimension 本轮不开放，在研中。比较表用于核对具体差异。',
   },
   {
     question: '部署和后续更新如何处理？',
@@ -167,11 +184,12 @@ export const bookingEmail = '19858372936@163.com';
 export const wechatId = 'Wenluo430';
 
 export function getBookingHref(plan) {
+  const label = plan ? `${plan.name} ${plan.en || ''}`.trim() : '';
   const subject = plan
-    ? `预约定制个人网站｜${plan.code} ${plan.name}`
+    ? `预约定制个人网站｜${label}`
     : '预约定制个人网站';
   const body = plan
-    ? `你好，我想预约定制个人网站。\n\n意向方案：${plan.code} ${plan.name}\n二测早鸟价：${plan.beta}\n预约折后价：${plan.booking}\n\n希望进一步确认需求与排期。`
+    ? `你好，我想预约定制个人网站。\n\n意向方案：${label}\n二测早鸟价：${plan.beta}\n预约折后价：${plan.booking}\n\n希望进一步确认需求与排期。`
     : '你好，我想预约定制个人网站。\n\n希望进一步确认需求与排期。';
 
   return `mailto:${bookingEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
